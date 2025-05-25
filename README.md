@@ -46,18 +46,22 @@ o	Create a bar chart for the bottom 5 pizzas in terms of revenue, quantity, and 
 #### Average Order Value
 
 `SELECT SUM(total_price) / COUNT(DISTINCT order_id) AS avg_order_value FROM pizza_sales;`
+
 ![image](https://github.com/user-attachments/assets/b9c317b0-2d56-43bd-bca9-5ef388917b39)
 
 #### Total Pizzas Sold
 `SELECT SUM(quantity) AS total_pizza_sold FROM pizza_sales;`
+
 ![image](https://github.com/user-attachments/assets/10fd0d0c-f9b6-4c26-8641-3105620e35b9)
 
 #### Total Orders
 `SELECT COUNT(DISTINCT order_id) AS total_order FROM pizza_sales;`
+
 ![image](https://github.com/user-attachments/assets/d8390591-cdec-46e3-80e9-f1dc967dcf58)
 
 #### Average Pizzas per Order
 `SELECT ROUND(SUM(quantity) / COUNT(DISTINCT order_id), 2) AS avg_pizza_per_order FROM pizza_sales;`
+
 ![image](https://github.com/user-attachments/assets/387e9ef7-bee2-44eb-8c9f-75297e9646b5)
 
 ### Hourly Trend for Total Pizzas Sold
@@ -65,6 +69,7 @@ o	Create a bar chart for the bottom 5 pizzas in terms of revenue, quantity, and 
 FROM pizza_sales
 GROUP BY HOUR(order_time)
 ORDER BY HOUR(order_time);`
+
 ![image](https://github.com/user-attachments/assets/1633e4a2-ffd2-4ece-9374-8f60f1d6ab55)
 
 ### Weekly Trend for Orders
@@ -73,6 +78,7 @@ ORDER BY HOUR(order_time);`
 FROM pizza_sales
 GROUP BY WEEK(order_date, 3), YEAR(order_date)
 ORDER BY Year, WeekNumber;`
+
 ![image](https://github.com/user-attachments/assets/f1935bc3-8dd3-47f8-83fb-ff428e9101e9)
 
 ### % of Sales by Pizza Category
@@ -81,6 +87,7 @@ ORDER BY Year, WeekNumber;`
     ROUND(SUM(total_price) * 100 / (SELECT SUM(total_price) FROM pizza_sales), 2) AS PCT
 FROM pizza_sales 
 GROUP BY pizza_category;`
+
 ![image](https://github.com/user-attachments/assets/792ab795-e5fd-404b-83cd-82acd058a330)
 
 ### % of Sales by Pizza Size
@@ -90,6 +97,7 @@ GROUP BY pizza_category;`
 FROM pizza_sales
 GROUP BY pizza_size
 ORDER BY pizza_size;`
+
 ![image](https://github.com/user-attachments/assets/b87ed45b-cf11-41d1-b89d-3e7807d029aa)
 
 ### Total Pizzas Sold by Pizza Category
@@ -98,6 +106,7 @@ FROM pizza_sales
 -- WHERE MONTH(order_date) = 2
 GROUP BY pizza_category
 ORDER BY Total_Quantity_Sold DESC;`
+
 ![image](https://github.com/user-attachments/assets/124db14b-e02b-41ef-9675-9637178f5d9e)
 
 ### Top 5 Pizzas by Revenue
@@ -105,6 +114,7 @@ ORDER BY Total_Quantity_Sold DESC;`
 FROM  pizza_sales
 GROUP BY pizza_name
 ORDER BY Total_Revenue DESC LIMIT 5;`
+
 ![image](https://github.com/user-attachments/assets/2fcdbd68-f468-4e84-9a59-65a4ccca18fd)
 
 ### Bottom 5 Pizzas by Revenue
@@ -112,6 +122,7 @@ ORDER BY Total_Revenue DESC LIMIT 5;`
 FROM pizza_sales
 GROUP BY pizza_name
 ORDER BY Total_Revenue ASC LIMIT 5;`
+
 ![image](https://github.com/user-attachments/assets/2ba8ae41-24df-4ed2-bd22-2fdfa132d063)
 
 ### Top 5 Pizzas by Quantity
@@ -120,6 +131,7 @@ FROM pizza_sales
 GROUP BY pizza_name
 ORDER BY Total_Pizza_Sold ASC
  LIMIT 5;`
+ 
  ![image](https://github.com/user-attachments/assets/f2f4c764-91e4-42f2-a2cb-b6dfa8225e8a)
 
  ### Top 5 Pizzas by Total Orders
@@ -128,6 +140,7 @@ FROM pizza_sales
 GROUP BY pizza_name
 ORDER BY Total_Orders DESC
 LIMIT 5;`
+
 ![image](https://github.com/user-attachments/assets/7dd6716f-3dd8-4c45-8ab8-28bc1c6d7b79)
 
 ### Bottom 5 Pizzas by Total Orders
@@ -138,6 +151,7 @@ FROM pizza_sales
 GROUP BY pizza_name
 ORDER BY Total_Orders ASC
 LIMIT 5;`
+
 ![image](https://github.com/user-attachments/assets/1ea255a9-5c05-45b5-b4c7-41fec83c1f13)
 
 
