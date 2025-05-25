@@ -39,8 +39,8 @@ o	Create a bar chart for the bottom 5 pizzas in terms of revenue, quantity, and 
 
 #### Total Revenue
 
-```sql
-SELECT SUM(total_price) AS total_revenue FROM pizza_sales;
+
+`SELECT SUM(total_price) AS total_revenue FROM pizza_sales;`
 
 ![image](https://github.com/user-attachments/assets/6c550f4b-5e5c-4e26-9b6f-694386a7cc2f)
 
